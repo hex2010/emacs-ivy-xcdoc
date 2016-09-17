@@ -29,7 +29,7 @@
   You may want to customization `ivy-xcdoc-docsets`,  default settings is
   known to work with `Xcode 8.0`, for other verisons the docset paths
   maybe different, and the default settings contains `OSX` and `iOS` documents
-  only, `whatchO` and `tvOS` is not include by default.
+  only, `whatchOS` and `tvOS` is not include by default.
 
   You can also set the `ivy-xcdoc-url-browser-function` variable to change
   the default display style, for example use an external browser.
