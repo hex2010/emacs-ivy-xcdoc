@@ -5,7 +5,7 @@
 ;; Author: C.T.Chen <chenct@7adybird.com>
 ;; URL: https://github.com/hex2010/emacs-ivy-xcdoc
 ;; Version: 0.0.1
-;; Package-Requires: ((ivy) (emacs "24.1"))
+;; Package-Requires: ((ivy "0.8.0") (emacs "24.1"))
 
 ;; This file is NOT part of GNU Emacs.
 
