@@ -90,15 +90,18 @@
   :group 'ivy-xcdoc)
 
 (defun ivy-xcdoc--show-topic (url)
+  "Use specified function to open topic url."
   (if ivy-xcdoc-url-browser-function (funcall ivy-xcdoc-url-browser-function url)
     (eww-browse-url url nil)))
 
 
 (defun ivy-xcdoc--make-safe-query (query)
+  "Make query keywords safe for command line."
   (replace-regexp-in-string "\"" "\\\"" query))
 
 
 (defun ivy-xcdoc--parse-result (docset output)
+  "Parse the result, construct url for each topic."
   (let ((name (car docset))
         (path (concat "file://" (expand-file-name (cdr docset))))
         (lines (split-string output "\n" t))
@@ -109,12 +112,14 @@
                               (concat path "/Contents/Resources/Documents/" (nth 1 sl))) ret))))))
 
 (defun ivy-xcdoc--docsetutil (safe-query docset)
+  "Invoke the docsetutil on single docset."
   (let ((cmd (concat ivy-xcdoc-command " search -skip-text -query \"" safe-query "\"  " (cdr
                                                                                          docset))))
     (ivy-xcdoc--parse-result  docset (or (shell-command-to-string cmd)
                                          ""))))
 
 (defun ivy-xcdoc--docsetutil-multi (query docsets)
+  "Invoke the docsetutil on multi docsets."
   (setq query (ivy-xcdoc--make-safe-query query))
   (let (ret)
     (dolist (docset docsets ret)
